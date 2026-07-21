@@ -1,4 +1,4 @@
-const INDEX_URL = "https://trektravel.herokuapp.com/trips";
+const INDEX_URL = "https://trektravel.onrender.com/trips";
 
 const hideDetails = () => {
   $('#alert-container').hide();
@@ -76,7 +76,7 @@ const loadTrips = () => {
       response.data.forEach((trip) => {
         const li = $('<li></li>');
         const a = $(`<a>${trip.name}</a>`);
-        a.attr('href', `https://trektravel.herokuapp.com/trips/${trip.id}`);
+        a.attr('href', `https://trektravel.onrender.com/trips/${trip.id}`);
         a.data('id', trip.id);
         li.append(a);
         ul.append(li);
@@ -117,7 +117,7 @@ const createReservation = (event) => {
     "name": tripData["name"],
     "email": tripData["email"]
   }
-  const url = `https://trektravel.herokuapp.com/trips/${id}/reservations`;
+  const url = `https://trektravel.onrender.com/trips/${id}/reservations`;
 
   axios.post(url, tripData)
     .then(() => {
@@ -168,7 +168,7 @@ const searchTrips = (option) => {
   searchList.empty();
   const ul = $('<ul></ul>');
 
-  const url = `https://trektravel.herokuapp.com/trips/${option}?${searchData}`;
+  const url = `https://trektravel.onrender.com/trips/${option}?${searchData}`;
 
   axios.get(url)
     .then((response) => {
@@ -176,7 +176,7 @@ const searchTrips = (option) => {
         response.data.forEach((trip) => {
           const li = $('<li></li>');
           const a = $(`<a>${trip.name}</a>`);
-          a.attr('href', `https://trektravel.herokuapp.com/trips/${trip.id}`);
+          a.attr('href', `https://trektravel.onrender.com/trips/${trip.id}`);
           a.data('id', trip.id);
           li.append(a);
           ul.append(li);
